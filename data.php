@@ -1,7 +1,9 @@
 <?php
 declare(strict_types=1);
-// data.php - sumber data katalog (nanti diganti database di pertemuan berikutnya)
+
+// data.php - sumber data katalog
 $namaToko = "UMKM Sekar Jagad Solo";
+
 $daftarProduk = [
     ["kode" => "P01", "nama" => "Keripik Tempe Original", "kategori" => "Makanan", "harga" => 15000, "stok" => 40],
     ["kode" => "P02", "nama" => "Sambal Bawang Pedas", "kategori" => "Makanan", "harga" => 25000, "stok" => 0],
@@ -9,4 +11,5 @@ $daftarProduk = [
     ["kode" => "P04", "nama" => "Batik Tulis Parang", "kategori" => "Fashion", "harga" => 350000, "stok" => 3],
     ["kode" => "P05", "nama" => "Wedang Uwuh Instan", "kategori" => "Minuman", "harga" => 18000, "stok" => 25],
     ["kode" => "P06", "nama" => "Serabi <Notosuman>", "kategori" => "Makanan", "harga" => 30000, "stok" => 12],
+    ["kode" => "P07", "nama" => "Gantungan Kunci Kayu", "kategori" => "Kerajinan", "harga" => 12000, "stok" => 15],
 ];

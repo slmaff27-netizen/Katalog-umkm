@@ -8,7 +8,7 @@ function formatRupiah(int $angka): string
     return "Rp" . number_format($angka, 0, ',', '.');
 }
 
-// match(true): lengan PERTAMA yang bernilai true dipilih
+// Menentukan status stok
 function statusStok(int $stok): string
 {
     return match (true) {
@@ -18,7 +18,7 @@ function statusStok(int $stok): string
     };
 }
 
-// Nama kelas CSS untuk badge, diturunkan dari status
+// Menentukan kelas CSS badge
 function kelasBadge(string $status): string
 {
     return match ($status) {
@@ -28,32 +28,39 @@ function kelasBadge(string $status): string
     };
 }
 
+// Menghitung nilai seluruh stok
 function hitungNilaiStok(array $produk): int
 {
     $total = 0;
+
     foreach ($produk as $item) {
         $total += $item["harga"] * $item["stok"];
     }
+
     return $total;
 }
 
+// Filter berdasarkan kategori
 function filterKategori(array $produk, string $kategori): array
 {
     if ($kategori === "Semua") {
         return $produk;
     }
-    return array_filter($produk, fn(array $p): bool => $p["kategori"] === $kategori);
+
+    return array_filter(
+        $produk,
+        fn(array $p): bool => $p["kategori"] === $kategori
+    );
 }
 
-// Wajib dipakai setiap kali mencetak data ke HTML (cegah XSS)
+// Mengamankan teks sebelum dicetak ke HTML
 function e(string $teks): string
 {
     return htmlspecialchars($teks, ENT_QUOTES, 'UTF-8');
 }
+
+// Menentukan label promo
 function labelPromo(int $harga): string
 {
-    if ($harga >= 100000) {
-        return "Gratis Ongkir";
-    }
-    return "";
+    return $harga >= 100_000 ? "Gratis Ongkir" : "";
 }
