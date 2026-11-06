@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);
+
 // ---------- 1. LOGIKA (di atas, sebelum HTML) ----------
 require __DIR__ . "/data.php";
-require __DIR__ . "/function.php";
+require __DIR__ . "/functions.php";
 
 $daftarKategori = ["Semua", "Makanan", "Minuman", "Fashion"];
 
@@ -51,11 +52,6 @@ $nilaiStok = hitungNilaiStok($daftarProduk);
             <?php $status = statusStok($produk["stok"]); ?>
             <article class="kartu">
                 <span class="<?= kelasBadge($status) ?>"><?= $status ?></span>
-<?php if (labelPromo($produk["harga"]) !== ""): ?>
-    <span class="badge-promo">
-        <?= e(labelPromo($produk["harga"])) ?>
-    </span>
-<?php endif; ?>
                 <h2><?= e($produk["nama"]) ?></h2>
                 <p class="kategori"><?= e($produk["kategori"]) ?> · <?= e($produk["kode"]) ?></p>
                 <p class="harga"><?= formatRupiah($produk["harga"]) ?></p>
