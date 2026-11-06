@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 // ---------- 1. LOGIKA (di atas, sebelum HTML) ----------
 require __DIR__ . "/data.php";
-require __DIR__ . "/functions.php";
+require __DIR__ . "/function.php";
 
 $daftarKategori = ["Semua", "Makanan", "Minuman", "Fashion"];
 
@@ -51,6 +51,8 @@ $nilaiStok = hitungNilaiStok($daftarProduk);
         <?php foreach ($produkTampil as $produk): ?>
             <?php $status = statusStok($produk["stok"]); ?>
             <article class="kartu">
+
+            
                 <span class="<?= kelasBadge($status) ?>"><?= $status ?></span>
                 <h2><?= e($produk["nama"]) ?></h2>
                 <p class="kategori"><?= e($produk["kategori"]) ?> · <?= e($produk["kode"]) ?></p>

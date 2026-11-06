@@ -50,3 +50,10 @@ function e(string $teks): string
 {
     return htmlspecialchars($teks, ENT_QUOTES, 'UTF-8');
 }
+function labelPromo(int $harga): string
+{
+    if ($harga >= 100000) {
+        return "Gratis Ongkir";
+    }
+    return "";
+}
